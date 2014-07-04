@@ -6,4 +6,4 @@ city = City.new
 city.get_wu_data
 city.print_temp
 
-#change
+#changes
