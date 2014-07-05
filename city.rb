@@ -22,9 +22,7 @@ class City
 	end
 
 	def get_city
-
 		@city_name = gets.chomp
-	
 	end
 
 	def wunderground_url
