@@ -8,13 +8,13 @@ class City
 
 	def initialize
 
-		get_city
+		@city_name = get_city
 
 		result = JSON.load(RestClient.get(wunderground_url))
 
 		if result["current_observation"] == nil
 			puts "I'm not familiar with '#{@city_name.capitalize}'. Move somewhere more well-known. Where are you now?" 
-			get_city
+			initialize
 		else	
 			@temp = result["current_observation"]["temp_c"]
 			@time = result["current_observation"]["local_time_rfc822"]
@@ -22,7 +22,7 @@ class City
 	end
 
 	def get_city
-		@city_name = gets.chomp
+		gets.chomp
 	end
 
 	def wunderground_url
