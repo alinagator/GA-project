@@ -7,29 +7,22 @@ class City
 	attr_accessor :city_name, :temp, :time
 
 	def initialize
-		get_wu_data
-	end
 
-	def get_wu_data
-		
 		get_city
 
 		result = JSON.load(RestClient.get(wunderground_url))
 
 		if result["current_observation"] == nil
 			puts "I'm not familiar with '#{@city_name.capitalize}'. Move somewhere more well-known. Where are you now?" 
-			get_wu_data
+			get_city
 		else	
 			@temp = result["current_observation"]["temp_c"]
 			@time = result["current_observation"]["local_time_rfc822"]
 		end	
-
 	end
 
 	def get_city
-
 		@city_name = gets.chomp
-	
 	end
 
 	def wunderground_url
