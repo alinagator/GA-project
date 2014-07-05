@@ -7,9 +7,7 @@ class City
 	attr_accessor :city_name, :temp, :time
 
 	def initialize
-		@city_name = city_name
-		@temp = temp
-		@time = time
+		get_wu_data
 	end
 
 	def get_wu_data
@@ -40,9 +38,7 @@ class City
 	end
 
 	def print_temp
-		puts "The temperature in #{@city_name.capitalize} at #{@time} is #{@temp} degrees Celsius."
+		puts "The temperature in #{@city_name.capitalize} on #{@time} is #{@temp} degrees Celsius."
 	end
 
 end
-
-#changes

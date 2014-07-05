@@ -8,7 +8,6 @@ end
 
 def create_city
 	city = City.new
-	city.get_wu_data
 	city.print_temp
 
 	puts "Want to know the temperature somewhere else?"
@@ -19,9 +18,13 @@ def create_city
       more_weather = gets.chomp.upcase
     end
 
-    if more_weather =+ "Y"
+    if more_weather == "Y"
     	puts "Enter a new city."
     	create_city
+ 	end
+
+    if more_weather == "N"
+    	puts "Great. Get outside and enjoy the weather!"	
     end
 end
 
