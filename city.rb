@@ -7,10 +7,6 @@ class City
 	attr_accessor :city_name, :temp, :time
 
 	def initialize
-		get_wu_data
-	end
-
-	def get_wu_data
 		
 		get_city
 
@@ -23,7 +19,6 @@ class City
 			@temp = result["current_observation"]["temp_c"]
 			@time = result["current_observation"]["local_time_rfc822"]
 		end	
-
 	end
 
 	def get_city
