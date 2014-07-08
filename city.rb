@@ -6,15 +6,14 @@ class City
 
 	attr_accessor :city_name, :temp, :time
 
-	def initialize
-
+	def check_weather
 		@city_name = get_city
 
 		result = JSON.load(RestClient.get(wunderground_url))
 
 		if result["current_observation"] == nil
 			puts "I'm not familiar with '#{@city_name.capitalize}'. Move somewhere more well-known. Where are you now?" 
-			initialize
+			check_weather # Do it again
 		else	
 			@temp = result["current_observation"]["temp_c"]
 			@time = result["current_observation"]["local_time_rfc822"]

@@ -8,6 +8,8 @@ end
 
 def create_city
 	city = City.new
+	city.check_weather
+
 	city.print_temp
 
 	puts "Want to know the temperature somewhere else?"
